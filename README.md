@@ -4,16 +4,27 @@ Ovo je profesionalni starter šablon za web projekte koji koristi Next.js 15, Re
 
 ## Kako početi
 
-1. Klonirajte ovaj repozitorijum
+1. Klonirajte ovaj repozitorijum:
+   \`\`\`
+   git clone <URL>
+   \`\`\`
 2. Instalirajte zavisnosti:
    \`\`\`
-   npm install / bun install
+   npm install
+   \`\`\`
+   ili
+   \`\`\`
+   bun install
    \`\`\`
 3. Pokrenite razvojni server:
    \`\`\`
-   npm run dev / bun run dev
+   npm run dev
    \`\`\`
-4. Otvorite [http://localhost:3000](http://localhost:3000) u vašem pregledaču
+   ili
+   \`\`\`
+   bun run dev
+   \`\`\`
+4. Otvorite [http://localhost:3000](http://localhost:3000) u vašem pregledaču.
 
 ## Struktura projekta
 
@@ -34,7 +45,7 @@ Ovo je profesionalni starter šablon za web projekte koji koristi Next.js 15, Re
 
 ## Prilagođavanje
 
-Počnite uređivanjem `app/page.tsx` i kreiranjem novih stranica u `app` direktorijumu. Koristite Tailwind CSS klase i shadcn/ui komponente za stilizovanje vaših komponenti. Dodajte animacije pomoću Framer Motion biblioteke za poboljšano korisničko iskustvo.
+Počnite uređivanjem \`app/page.tsx\` i kreiranjem novih stranica u \`app\` direktorijumu. Koristite Tailwind CSS klase i shadcn/ui komponente za stilizovanje vaših komponenti. Dodajte animacije pomoću Framer Motion biblioteke za poboljšano korisničko iskustvo.
 
 ## Saznajte više
 
