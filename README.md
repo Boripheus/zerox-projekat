@@ -12,7 +12,7 @@ Profesionalni starter šablon za moderne web projekte, optimizovan za vrhunske p
 - **Framer Motion** - Biblioteka za animacije
 - **Lucide** - SVG ikone
 
-## Instalacija i Pokretanje 🏃‍♂️
+## Instalacija i pokretanje 🏃‍♂️
 
 ```bash
 # Instalacija zavisnosti (izaberite jedan)
@@ -28,7 +28,7 @@ bun run dev
 
 Posetite `http://localhost:3000`
 
-## Organizacija Projekta 📁
+## Organizacija projekta 📁
 
 ```
 projekat/
@@ -37,7 +37,7 @@ projekat/
 └── public/        # Statički fajlovi
 ```
 
-## Glavne Karakteristike ✨
+## Glavne karakteristike ✨
 
 - 🎨 Podržava svetlu i tamnu temu
 - 📱 Responzivan dizajn
@@ -46,7 +46,7 @@ projekat/
 - 🛠️ TypeScript podrška
 - 📦 Moderne React prakse
 
-## Uputstvo za Razvoj 💻
+## Uputstvo za razvoj 💻
 
 1. Uredite `app/page.tsx` za izmenu početne stranice
 2. Dodajte nove stranice u `app` direktorijum
@@ -54,7 +54,7 @@ projekat/
 4. Implementirajte shadcn/ui komponente po potrebi
 5. Dodajte animacije sa Framer Motion
 
-## Korisni Linkovi 🔗
+## Korisni linkovi 🔗
 
 - [Next.js](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
