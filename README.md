@@ -1,73 +1,64 @@
-# ZEROX Starter Šablon
+# ZEROX Starter Šablon 🚀
 
-Ovo je profesionalni starter šablon za web projekte koji koristi Next.js 15, React, Tailwind CSS, shadcn/ui komponente i Framer Motion za animacije.
+Profesionalni starter šablon za moderne web projekte, optimizovan za vrhunske performanse i najbolje prakse u razvoju.
 
-## Kako početi
+## Tehnologije 🛠️
 
-1. Klonirajte ovaj repozitorijum:
-   \`\`\`
-   git clone <URL>
-   \`\`\`
-2. Instalirajte zavisnosti:
-   \`\`\`
-   npm install
-   \`\`\`
-   ili
-   \`\`\`
-   bun install
-   \`\`\`
-3. Pokrenite razvojni server:
-   \`\`\`
-   npm run dev
-   \`\`\`
-   ili
-   \`\`\`
-   bun run dev
-   \`\`\`
-4. Otvorite [http://localhost:3000](http://localhost:3000) u vašem pregledaču.
+- **Next.js 15** - React framework nove generacije
+- **React 19** - Najnovija verzija React biblioteke
+- **TypeScript** - Za bezbedno i predvidivo kodiranje
+- **Tailwind CSS** - Moderni CSS framework
+- **shadcn/ui** - Pristupačne UI komponente
+- **Framer Motion** - Biblioteka za animacije
+- **Lucide** - SVG ikone
 
-## Struktura projekta
+## Instalacija i Pokretanje 🏃‍♂️
 
-- \`app/\`: Sadrži stranice i rutiranje (Next.js 15 App Router)
-- \`components/\`: Ponovno upotrebljive React komponente
-- \`public/\`: Statički resursi
+```bash
+# Instalacija zavisnosti (izaberite jedan)
+npm install
+# ili
+bun install
 
-## Karakteristike
+# Pokretanje razvoja (izaberite jedan)
+npm run dev
+# ili
+bun run dev
+```
 
-- Next.js 15 sa App Router-om
-- React 19
-- TypeScript
-- Tailwind CSS
-- shadcn/ui komponente
-- Framer Motion za animacije
-- Lucide ikonice
-- Podrška za svetlu i tamnu temu
+Posetite `http://localhost:3000`
 
-## Prilagođavanje
+## Organizacija Projekta 📁
 
-Počnite uređivanjem \`app/page.tsx\` i kreiranjem novih stranica u \`app\` direktorijumu. Koristite Tailwind CSS klase i shadcn/ui komponente za stilizovanje vaših komponenti. Dodajte animacije pomoću Framer Motion biblioteke za poboljšano korisničko iskustvo.
+```
+projekat/
+├── app/           # Next.js stranice i rute
+├── components/    # React komponente
+└── public/        # Statički fajlovi
+```
 
-## Saznajte više
+## Glavne Karakteristike ✨
 
-Da biste saznali više o tehnologijama korišćenim u ovom šablonu, pogledajte sledeće resurse:
+- 🎨 Podržava svetlu i tamnu temu
+- 📱 Responzivan dizajn
+- ⚡ Optimizovane performanse
+- 🔍 SEO optimizacija
+- 🛠️ TypeScript podrška
+- 📦 Moderne React prakse
 
-- [Next.js 15 Dokumentacija](https://nextjs.org/docs)
-- [React Dokumentacija](https://reactjs.org/docs)
-- [Tailwind CSS Dokumentacija](https://tailwindcss.com/docs)
-- [shadcn/ui Komponente](https://ui.shadcn.com/)
-- [Framer Motion Dokumentacija](https://www.framer.com/motion/)
-- [Lucide Ikonice](https://lucide.dev/)
+## Uputstvo za Razvoj 💻
 
-## Licenca
+1. Uredite `app/page.tsx` za izmenu početne stranice
+2. Dodajte nove stranice u `app` direktorijum
+3. Koristite Tailwind CSS za stilizovanje
+4. Implementirajte shadcn/ui komponente po potrebi
+5. Dodajte animacije sa Framer Motion
 
-Ovaj projekat je otvorenog koda i dostupan je pod [MIT Licencom](LICENSE).
+## Korisni Linkovi 🔗
 
-## Doprinos projektu
+- [Next.js](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com)
+- [Framer Motion](https://www.framer.com/motion)
 
-Doprinosi su dobrodošli! Molimo vas da prvo otvorite issue za diskusiju o većim promenama pre slanja pull request-a.
-
-## Podrška
-
-Ako imate pitanja ili naiđete na probleme, otvorite issue u GitHub repozitorijumu projekta.
-
-Srećno kodiranje!
+---
