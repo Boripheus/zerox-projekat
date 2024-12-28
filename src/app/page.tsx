@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Layers, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -11,85 +9,132 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { firstPagedata } from "@/constants/index";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 relative ">
+      <div
+        className=" absolute w-full h-screen md:bg-cover bg-center "
+        style={{
+          backgroundImage: "url('/RentacarBeogradAudiA6Automatik.png')",
+          zIndex: -1,
+        }}
+      >
+        {" "}
+      </div>
       <motion.section
         className="text-center space-y-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold text-primary">
-          Dobrodošli u ZEROX Starter Šablon
+        <h1 className="text-4xl font-bold text-primary py-5">
+          Rent a car Beograd - GoldRent - Bez depozita
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Profesionalni početni šablon za vaše web projekte. Brzo započnite
-          razvoj uz moderne tehnologije i čistu strukturu.
+        <p className=" text-3xl  text-white font-bold  mx-auto py-72 w-[80%]">
+          Najjeftiniji rent a car, iznajmljivanje automobila NAJPOVOLJNIJE cene.
+          Veliki izbor vozila od ekonomičnih do lux modela.
         </p>
       </motion.section>
 
       <motion.section
-        className="grid md:grid-cols-3 gap-8"
+        className="text-center space-y-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="text-xl text-muted-foreground  mx-auto">
+          Rent a car bez depozita - Neograničena kilometraža - Full kasko
+          osiguranja - Dostava vozila na adresu - Isporuka na aerodromu - Bez
+          ograničenja na pređenu kilometražu! - Zeleni karton, GPS i dečje
+          sedište BESPLATNO
+        </p>
+
+        <p className="text-xl text-muted-foreground mx-auto">
+          Rent a car Beograd GoldRent iznajmljivanje vozila vrši na bilo kojoj
+          adresi u Beogradu.Bez obzira dali se nalazite na
+          Vračaru,Dorćolu,Zemunu ili bilo gde, potrebno je samo da nam se javite
+          i rezervišete Vaše vozilo koje ćemo Vam dovesti na određenu adresu.
+          GoldRent u svakom trenutku može da Vam omogući da Vas iznajmljeni
+          automobil čeka na aerodromu Nikola Tesla u Beogradu.
+        </p>
+        <p className="text-xl text-muted-foreground mx-auto">
+          Potrebno Vam je vozilo na duži vremenski period, u tom slučaju Rent a
+          car Beograd Gold može da Vam ponudi specijalne uslove i cene kod
+          iznajlmljivanja auta.
+        </p>
+        <p className="text-xl text-muted-foreground mx-auto">
+          Gold Rent a car Beograd nudi široku ponudu iznajmljivanja automobila.
+          Svaki automobil je redovno servisiran i održavan i dobro pripremljen
+          za letnju i zimsku vožnju. Sva vozila su KASKO osigurana sa
+          neograničenom kilometražom.Kada iznamjite automobil kod nas, mi Vam
+          dovozimo vozilo na Vašu adresu.
+        </p>
+      </motion.section>
+
+      <motion.section
+        className=" flex flex-col gap-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, staggerChildren: 0.1 }}
       >
-        <FeatureCard
-          icon={<Zap className="w-10 h-10 text-primary" />}
-          title="Brz početak"
-          description="Započnite razvoj odmah sa predkonfigurisanim okruženjem i osnovnom strukturom projekta."
-        />
-        <FeatureCard
-          icon={<Layers className="w-10 h-10 text-primary" />}
-          title="Moderna arhitektura"
-          description="Izgrađeno sa Next.js 15 App Router-om, React-om i TypeScript-om za robusne i skalabilne aplikacije."
-        />
-        <FeatureCard
-          icon={<Code className="w-10 h-10 text-primary" />}
-          title="Prilagodljiv dizajn"
-          description="Koristite Tailwind CSS i shadcn komponente za brzo i fleksibilno stilizovanje vaših komponenti i stranica."
-        />
-      </motion.section>
-
-      <motion.section
-        className="text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        <Button asChild>
-          <Link href="/o-projektu" className="inline-flex items-center">
-            Saznajte više
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
-        </Button>
+        {firstPagedata.map((data, i) => {
+          return (
+            <FeatureCard
+              key={i}
+              i={i}
+              title={data.title}
+              image={data.image}
+              text={data.text}
+            />
+          );
+        })}
       </motion.section>
     </div>
   );
 }
 
 function FeatureCard({
-  icon,
   title,
-  description,
+  image,
+  text,
+  i,
 }: {
-  icon: React.ReactNode;
+  i: number;
   title: string;
-  description: string;
+  image: string;
+  text: string[];
 }) {
   return (
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-primary">
-            {icon}
-            <span>{title}</span>
+        <CardHeader className="">
+          <CardTitle className="text-lg text-center lg:text-3xl flex items-center lg:pt-20 lg:pb-10 text-primary mx-auto uppercase">
+            {title}
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <CardDescription>{description}</CardDescription>
+        <CardContent
+          className={`flex lg:px-16 ${
+            i % 2 !== 0
+              ? "flex-col gap-4 lg:gap-0 lg:flex-row-reverse "
+              : "flex-col lg:flex-row "
+          } items-center justify-between`}
+        >
+          <img src={image} alt={image} className="w-full lg:w-[50%]" />
+
+          <CardDescription className="flex flex-col gap-2 lg:gap-3 text-muted-foreground lg:text-2xl lg:w-[40%]">
+            {" "}
+            {text.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+            <a href="tel:+38163267202">
+              <Button className="w-full mt-6">
+                Pozovite odmah +38163267202
+              </Button>
+            </a>
+          </CardDescription>
         </CardContent>
       </Card>
     </motion.div>

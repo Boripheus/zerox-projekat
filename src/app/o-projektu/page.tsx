@@ -9,6 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { IoManSharp } from "react-icons/io5";
+import { GiGearStickPattern } from "react-icons/gi";
+import { BsFuelPumpFill } from "react-icons/bs";
+import { carData } from "@/constants/index";
+import { Button } from "@/components/ui/button";
 
 export default function OProjektu() {
   return (
@@ -20,12 +25,12 @@ export default function OProjektu() {
     >
       <section className="text-center space-y-4">
         <motion.h1
-          className="text-3xl font-bold text-primary"
+          className="text-3xl font-bold text-primary uppercase"
           initial={{ y: -20 }}
           animate={{ y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          O ZEROX Starter Šablonu
+          Rent a car Beograd - GoldRent
         </motion.h1>
         <motion.p
           className="text-xl text-muted-foreground max-w-2xl mx-auto"
@@ -33,9 +38,8 @@ export default function OProjektu() {
           animate={{ y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          Ovaj starter šablon je dizajniran da vam pomogne da brzo započnete
-          svoje Next.js 15 projekte. Uključuje najnovije tehnologije i alate za
-          moderni web razvoj.
+          Najjeftiniji rent a car, iznajmljivanje automobila NAJPOVOLJNIJE cene.
+          Veliki izbor vozila od ekonomičnih do lux modela.
         </motion.p>
       </section>
 
@@ -45,93 +49,87 @@ export default function OProjektu() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        <h2 className="text-2xl font-semibold text-primary">Karakteristike:</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <FeatureItem
-            icon={<Code2 className="w-6 h-6 text-primary" />}
-            title="Next.js 15 sa App Router-om"
-            description="Iskoristite najnovije funkcionalnosti Next.js-a za brze i optimizovane aplikacije."
-          />
-          <FeatureItem
-            icon={<Palette className="w-6 h-6 text-primary" />}
-            title="Tailwind CSS i shadcn/ui"
-            description="Brzo kreirajte prilagođene dizajne sa unapred stilizovanim komponentama."
-          />
-          <FeatureItem
-            icon={<Book className="w-6 h-6 text-primary" />}
-            title="TypeScript podrška"
-            description="Pišite sigurniji i čitljiviji kod uz TypeScript integraciju."
-          />
-          <FeatureItem
-            icon={<Layers className="w-6 h-6 text-primary" />}
-            title="Framer Motion animacije"
-            description="Dodajte glatke i interaktivne animacije vašem korisničkom interfejsu."
-          />
+        <div className="flex flex-col md:grid md:grid-cols-4 gap-6">
+          {carData.map((car, i) => {
+            return (
+              <FeatureItem
+                key={i}
+                title={car.title}
+                image={car.image}
+                price={car.price}
+                type={car.type}
+                shape={car.shape}
+                gearbox={car.gearbox}
+                passengers={car.passengers}
+                fuel={car.fuel}
+              />
+            );
+          })}
         </div>
-      </motion.section>
-
-      <motion.section
-        className="bg-secondary p-6 rounded-lg"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <h2 className="text-2xl font-semibold text-primary mb-4">
-          Kako početi:
-        </h2>
-        <ol className="list-decimal list-inside space-y-2 text-secondary-foreground">
-          <li>Klonirajte repozitorijum</li>
-          <li>
-            Instalirajte zavisnosti:{" "}
-            <code className="bg-background px-2 py-1 rounded text-foreground">
-              npm install / bun install
-            </code>
-          </li>
-          <li>
-            Pokrenite razvojni server:{" "}
-            <code className="bg-background px-2 py-1 rounded text-foreground">
-              npm run dev / bun run dev
-            </code>
-          </li>
-          <li>
-            Otvorite{" "}
-            <code className="bg-background px-2 py-1 rounded text-foreground">
-              http://localhost:3000
-            </code>{" "}
-            u vašem pregledaču
-          </li>
-          <li>
-            Počnite sa uređivanjem{" "}
-            <code className="bg-background px-2 py-1 rounded text-foreground">
-              app/page.tsx
-            </code>
-          </li>
-        </ol>
       </motion.section>
     </motion.div>
   );
 }
 
 function FeatureItem({
-  icon,
   title,
-  description,
+  image,
+  price,
+  type,
+  shape,
+  gearbox,
+  passengers,
+  fuel,
 }: {
-  icon: React.ReactNode;
   title: string;
-  description: string;
+  image: string;
+  price: string;
+  type: string;
+  shape: string;
+  gearbox: string;
+  passengers: string;
+  fuel: string;
 }) {
   return (
     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-primary">
-            {icon}
-            <span>{title}</span>
+            <span className="text-center md:text-nowrap">{title}</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <CardDescription>{description}</CardDescription>
+          <img
+            src={image}
+            alt={image}
+            className="mx-auto w-full h-[230px] object-contain"
+          />
+
+          <CardDescription>
+            <div className="flex justify-between py-2">
+              <p>{type}</p>
+              <p>{shape}</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="flex gap-3 items-center">
+                <GiGearStickPattern />
+                {gearbox}
+              </p>
+              <p className="flex gap-3 items-center">
+                <IoManSharp />
+                {passengers}
+              </p>
+              <p className="flex gap-3 items-center">
+                <BsFuelPumpFill />
+                {fuel}
+              </p>
+            </div>
+          </CardDescription>
+          <p className="py-5 font-bold">{price}</p>
+
+          <a href="tel:+38163267202">
+            <Button className="w-full">Pozovite odmah +38163267202</Button>
+          </a>
         </CardContent>
       </Card>
     </motion.div>

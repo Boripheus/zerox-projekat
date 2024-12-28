@@ -23,7 +23,11 @@ export default function Header() {
               href="/"
               className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
             >
-              ZEROX
+              <img
+                src="/rent-a-car-beograd-GOLD.png"
+                alt="/rent-a-car-beograd-GOLD-logo"
+                className="w-[110px]"
+              />
             </Link>
           </motion.div>
           <div className="flex items-center space-x-6">
@@ -31,17 +35,17 @@ export default function Header() {
               <li>
                 <Link
                   href="/"
-                  className="text-foreground hover:text-primary transition-colors"
+                  className="text-foreground hover:text-primary transition-colors uppercase"
                 >
-                  Početna
+                  Rent a car Beograd
                 </Link>
               </li>
               <li>
                 <Link
                   href="/o-projektu"
-                  className="text-foreground hover:text-primary transition-colors"
+                  className="text-foreground hover:text-primary transition-colors uppercase"
                 >
-                  O projektu
+                  Naša vozila
                 </Link>
               </li>
             </ul>
