@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="space-y-12 relative ">
       <div
-        className=" absolute w-full h-screen md:bg-cover bg-center "
+        className=" absolute w-full h-screen bg-cover bg-center "
         style={{
           backgroundImage: "url('/RentacarBeogradAudiA6Automatik.png')",
           zIndex: -1,
@@ -30,10 +30,10 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-bold text-primary py-5">
+        <h1 className="text-xl lg:text-4xl font-bold text-primary ">
           Rent a car Beograd - GoldRent - Bez depozita
         </h1>
-        <p className=" text-3xl  text-white font-bold  mx-auto py-72 w-[80%]">
+        <p className="text-lg lg:text-3xl  text-white font-bold  mx-auto pt-96 pb-48 lg:pt-72 lg:pb-64 w-[80%]">
           Najjeftiniji rent a car, iznajmljivanje automobila NAJPOVOLJNIJE cene.
           Veliki izbor vozila od ekonomičnih do lux modela.
         </p>
@@ -108,7 +108,10 @@ function FeatureCard({
   text: string[];
 }) {
   return (
-    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+    <motion.div
+      whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+      transition={{ duration: 0.5 }}
+    >
       <Card>
         <CardHeader className="">
           <CardTitle className="text-lg text-center lg:text-3xl flex items-center lg:pt-20 lg:pb-10 text-primary mx-auto uppercase">
