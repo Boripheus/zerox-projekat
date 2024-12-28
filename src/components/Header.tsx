@@ -21,9 +21,9 @@ export default function Header() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/"
-              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
+              className="text-xl font-bold text-white hover:text-white transition-colors"
             >
-              ZEROX
+              Davidović
             </Link>
           </motion.div>
           <div className="flex items-center space-x-6">
@@ -31,7 +31,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/"
-                  className="text-foreground hover:text-primary transition-colors"
+                  className="text-white hover:text-white transition-colors"
                 >
                   Početna
                 </Link>
@@ -39,7 +39,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/o-projektu"
-                  className="text-foreground hover:text-primary transition-colors"
+                  className="text-white hover:text-white transition-colors"
                 >
                   O projektu
                 </Link>
