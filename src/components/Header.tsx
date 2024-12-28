@@ -1,62 +1,157 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { MoonIcon, SunIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useTheme } from "next-themes";
+import Image from 'next/image';
+import Logo from '@/../public/logo.webp';
+
+import Link from 'next/link';
+
+import { ChevronDownIcon, MenuIcon, PhoneIcon } from 'lucide-react';
+
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
+import { motion } from 'framer-motion';
+
+import { Fragment, useEffect, useState } from 'react';
+import { navList } from '@/assets/nav';
+
+const mobTitleStyles = 'text-lg py-2';
+
+const MobileMenu = () => (
+  <Sheet>
+    <SheetTrigger className='lg:hidden'>
+      <MenuIcon className='text-primary cursor-pointer' />
+    </SheetTrigger>
+    <SheetContent>
+      <SheetHeader>
+        <SheetTitle></SheetTitle>
+        <SheetContent>
+          <Image src={Logo} alt='Domino Enterijer' className='mt-[-20px] mb-[-20px] mx-[-50px] h-[120px] block' />
+          <ul>
+            {
+              navList.map((item, index) => {
+                if (item.list) return (
+                  <Fragment key={index}>
+                    <Accordion type="single" collapsible>
+                      <AccordionItem className='border-none' value="item-1">
+                        <motion.div whileHover={{ color: 'hsl(var(--primary))' }}>
+                          <AccordionTrigger className={`${mobTitleStyles} hover:no-underline`}>{item.title}</AccordionTrigger>
+                        </motion.div>
+                        <AccordionContent>
+                          {item.list.map((link, index2) => (
+                            <Link className='pl-6 block font-light py-2' key={`${index}.${index2}`} href={link.link}>
+                              <motion.li whileHover={{ color: 'hsl(var(--primary))' }}>{link.title}</motion.li>
+                            </Link>
+                          ))}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </Fragment>
+                )
+
+                return (
+                  <Link key={index} href={item.link}>
+                    <motion.li whileHover={{ color: 'hsl(var(--primary))' }} className={mobTitleStyles}>{item.title}</motion.li>
+                  </Link>
+                )
+              })
+            }
+          </ul>
+          <motion.button whileHover={{ color: 'hsl(var(--foreground))', backgroundColor: 'hsl(var(--primary))' }} className='flex items-center justify-center w-full rounded-full text-primary border-primary border-2 text-lg py-3 px-6 mt-4 transition-colors'>
+            <PhoneIcon />
+            <Link href='tel:+381603050704'>
+              <p>+381 60 30 50 704</p>
+            </Link>
+          </motion.button>
+        </SheetContent>
+      </SheetHeader>
+    </SheetContent>
+  </Sheet>
+)
+
+const DesktopNav = () => (
+  <ul className='hidden gap-8 lg:flex'>
+    {navList.map((item, index) => {
+      if (item.list) return (
+        <HoverCard key={index} openDelay={0} closeDelay={50}>
+          <HoverCardTrigger>
+            <motion.div whileHover={{ color: 'hsl(var(--primary))' }} className='flex gap-1 transition-colors'>
+              {item.title}
+              <ChevronDownIcon className='w-[18px]' />
+            </motion.div>
+          </HoverCardTrigger>
+          <HoverCardContent className='p-0'>
+            {item.list.map((link, index2) => (
+              <motion.li key={`${index}.${index2}`} whileHover={{ backgroundColor: 'hsl(var(--primary))' }}>
+                <Link className='px-2 py-2 block' href={link.link}>
+                  {link.title}
+                </Link>
+              </motion.li>
+            ))}
+          </HoverCardContent>
+        </HoverCard>
+      )
+
+      return (
+        <Link key={index} href={item.link}>
+          <motion.li className='transition-colors underline-animation' whileHover={{ color: 'hsl(var(--primary))' }}>{item.title}</motion.li>
+        </Link>
+      )
+    })}
+  </ul>
+)
 
 export default function Header() {
-  const { setTheme, theme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const HandleScroll = (e: Event) => {
+      if (window.scrollY > 0) setScrolled(true);
+      else setScrolled(false);
+    }
+
+    document.addEventListener('scroll', HandleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', HandleScroll);
+    }
+  }, []);
 
   return (
-    <motion.header
-      className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed top-0 left-0 right-0 z-10 border-b border-border"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+    <header
+      className={`flex justify-center ${scrolled ? 'bg-white' : 'bg-primary/5'} backdrop-blur fixed top-0 left-0 right-0 z-[10] transition-colors`}
     >
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/"
-              className="text-xl font-bold text-primary hover:text-primary/80 transition-colors"
-            >
-              ZEROX
-            </Link>
-          </motion.div>
-          <div className="flex items-center space-x-6">
-            <ul className="flex space-x-6">
-              <li>
-                <Link
-                  href="/"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  Početna
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/o-projektu"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  O projektu
-                </Link>
-              </li>
-            </ul>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-          </div>
-        </div>
+      <nav className="flex items-center justify-between px-8 py-4 max-w-[80rem] w-full">
+        <Link href='/' className='mt-[-20px] mb-[-40px] mx-[-50px] h-[120px]'>
+          <Image src={Logo} alt='Domino Enterijer' className='block h-full w-full' />
+        </Link>
+        <DesktopNav />
+        <motion.button whileHover={{ color: 'hsl(var(--foreground))', backgroundColor: 'hsl(var(--primary))' }} className='hidden items-center justify-center rounded-full text-primary border-primary border-2 text-md py-3 px-6 transition-colors lg:flex'>
+          <PhoneIcon />
+          <Link href='tel:+381603050704'>
+            <p>+381 60 30 50 704</p>
+          </Link>
+        </motion.button>
+        <MobileMenu />
       </nav>
-    </motion.header>
+    </header>
   );
 }

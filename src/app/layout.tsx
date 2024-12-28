@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin", "latin-ext"] });
+const raleway = Raleway({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "ZEROX Starter Šablon",
-  description: "Profesionalni starter šablon za web projekte sa Next.js 15",
+  title: "Domino Enterijer - Jer mi krojimo i rezemo vase snove BAS PO MERI",
+  description: "Od ideje do realizacije. Kompletno opremanje stambenih i poslovnih enterijera nameštajem po meri. Kuhinje, plakari, TV komode, projektovanje enterijera i 3D dizajn."
 };
 
 export default function RootLayout({
@@ -19,21 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sr" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-8 pt-24">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+      <body className={raleway.className}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
