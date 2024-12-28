@@ -4,12 +4,15 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "ZEROX Starter Šablon",
-  description: "Profesionalni starter šablon za web projekte sa Next.js 15",
+  title: "GoldRent - Rent a Car Beograd",
+  description:
+    "Najpovoljnije iznajmljivanje automobila u Beogradu. Širok izbor vozila za sve prilike.",
+  keywords: "rent a car, Beograd, iznajmljivanje automobila, GoldRent",
 };
 
 export default function RootLayout({
@@ -26,12 +29,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen relative">
+          <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-grow container mx-auto px-4 py-8 pt-24">
+            <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
               {children}
             </main>
             <Footer />
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>
