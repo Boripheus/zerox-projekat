@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Book, Code2, Palette, Layers } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -14,60 +13,46 @@ import { GiGearStickPattern } from "react-icons/gi";
 import { BsFuelPumpFill } from "react-icons/bs";
 import { carData } from "@/constants/index";
 import { Button } from "@/components/ui/button";
+import { title } from "process";
 
 export default function OProjektu() {
   return (
-    <motion.div
-      className="space-y-8"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <section className="text-center space-y-4">
-        <motion.h1
-          className="text-3xl font-bold text-primary uppercase"
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          Rent a car Beograd - GoldRent
-        </motion.h1>
-        <motion.p
-          className="text-xl text-muted-foreground max-w-2xl mx-auto"
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          Najjeftiniji rent a car, iznajmljivanje automobila NAJPOVOLJNIJE cene.
-          Veliki izbor vozila od ekonomičnih do lux modela.
-        </motion.p>
-      </section>
+    <div className=" bg-gray-100">
+      <div className="container mx-auto pt-[150px] pb-[70px] space-y-16 px-2 lg:px-4">
+        <section className="text-center space-y-6">
+          <h1 className="text-3xl font-bold text-primary uppercase">
+            Rent a car Beograd - GoldRent
+          </h1>
+          <h2 className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Najjeftiniji rent a car, iznajmljivanje automobila NAJPOVOLJNIJE
+            cene. Veliki izbor vozila od ekonomičnih do lux modela.
+          </h2>
+        </section>
 
-      <motion.section
-        className="space-y-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-      >
-        <div className="flex flex-col md:grid md:grid-cols-4 gap-6">
+        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {carData.map((car, i) => {
             return (
-              <FeatureItem
+              <motion.div
                 key={i}
-                title={car.title}
-                image={car.image}
-                price={car.price}
-                type={car.type}
-                shape={car.shape}
-                gearbox={car.gearbox}
-                passengers={car.passengers}
-                fuel={car.fuel}
-              />
+                whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+                transition={{ duration: 0.5 }}
+              >
+                <FeatureItem
+                  title={car.title}
+                  image={car.image}
+                  price={car.price}
+                  type={car.type}
+                  shape={car.shape}
+                  gearbox={car.gearbox}
+                  passengers={car.passengers}
+                  fuel={car.fuel}
+                />
+              </motion.div>
             );
           })}
         </div>
-      </motion.section>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -102,7 +87,7 @@ function FeatureItem({
           <img
             src={image}
             alt={image}
-            className="mx-auto w-full h-[230px] object-contain"
+            className="mx-auto w-full aspect-[1/1] object-contain"
           />
 
           <CardDescription>

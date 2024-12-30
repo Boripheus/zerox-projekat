@@ -20,20 +20,11 @@ export default function RootLayout({
   return (
     <html lang="sr" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex flex-col min-h-screen relative">
-            <Header />
-            <main className="flex-grow container mx-auto px-4 py-8 pt-24">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
