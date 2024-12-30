@@ -4,12 +4,15 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "ZEROX Starter Šablon",
-  description: "Profesionalni starter šablon za web projekte sa Next.js 15",
+  title: "GoldRent - Rent a Car Beograd",
+  description:
+    "Najpovoljnije iznajmljivanje automobila u Beogradu. Širok izbor vozila za sve prilike.",
+  keywords: "rent a car, Beograd, iznajmljivanje automobila, GoldRent",
 };
 
 export default function RootLayout({
